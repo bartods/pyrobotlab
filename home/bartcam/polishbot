@@ -1,0 +1,45 @@
+#Specjalnie na polskie znaki, bot już rozumie i odpowiada po polsku
+#Stworzone przez Bartosz Scencelek
+
+from java.lang import String
+#speak test to special characters
+Runtime.createAndStart("ear", "WebkitSpeechRecognition") 
+mouth=Runtime.createAndStart("mouth", "AcapelaSpeech")
+htmlFilter=Runtime.createAndStart("htmlFilter", "HtmlFilter")
+#
+ear.addListener("publishText", python.name, "talk") 
+#
+htmlFilter.addListener("publishText", python.name, "say");
+mouth.setLanguage("pl-PL");
+mouth.setVoice("Ania");
+ear.setLanguage("pl-PL")
+Runtime.createAndStart("webGui", "WebGui") 
+#
+aimlDir = "C:/MyRobotLab/myrobotlab.1.0.1412/develop/ProgramAB"
+userName = "bartosz"
+botName = "damian"
+
+#
+damian = Runtime.createAndStart("damian", "ProgramAB")
+# start the session for the chat bot
+damian.startSession(aimlDir, "bartosz", "damian")
+ear.addTextListener(damian)
+damian.addTextListener(htmlFilter)
+htmlFilter.addTextListener(mouth)
+
+
+
+ear.addCommand(u'Łukasz', "python", "czesc2") 
+ear.addCommand(u'cześć', "python", "czesc")
+#
+ear.addListener("recognized", "python", "heard")
+#
+
+#
+ear.startListening()
+#
+#def czesc():
+#    mouth.speak(u'cześć')
+#
+#def czesc2():
+#    mouth.speak(u'Łukasz') 
